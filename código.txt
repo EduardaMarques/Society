@@ -1,0 +1,34 @@
+import sqlite3 #criando o banco de dados
+
+conn = sqlite3.connect('Usuario.db') #conectando o banco ao programa em Python
+cursor = conn.cursor() #definindo o cursor 
+
+
+#criando a tabela Usuario
+cursor.execute("""
+create table Usuario (
+    nome varchar (50) not null,
+    cpf varchar (11) not null,
+    email varchar (30) not null primary key autoincrement,
+    idade integer not null,
+    telefone integer,
+    cidade varchar (15),
+    data_ins_rede date not null,
+    profissao varchar (50),
+);
+""")
+
+
+#criando tabela Amigos
+cursor.execute("""
+    create table Amigos(
+    nome varchar (50) not null,
+    email varchar (30) not null primary key autoincrement,
+    idade integer,
+    telefone integer,
+    cidade varchar (15),
+    data_ins_rede date not null,
+    data_amizade date not null,
+
+);
+""")
